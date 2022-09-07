@@ -14,9 +14,9 @@ const url = "https://api.themoviedb.org/3/"
 const key = "api_key=e062837d92b7cad745d5a14e61157a1e"
 const imageurl = "https://image.tmdb.org/t/p/w500";
 const main_url = url + "discover/movie?sort_by=popularity.desc&" + key + "&append_to_response=videos";
-const searchurl = url + "search/multi?" + key + "&language=en-US&page=1&include_adult=false";
+const searchurl = url + "search/movie?" + key + "&language=en-US&page=1&include_adult=false";
 
-
+const tvshowurl = "https://api.themoviedb.org/3/search/tv?" + key + "&language=en-US&page=1&include_adult=false";
 
 const main = document.getElementById("main");
 const search = document.getElementById("search");
@@ -31,7 +31,17 @@ const storage = Object.keys(localStorage)
 
 let addwatch = document.querySelectorAll('.addtowishlist')
 
-//  
+const genreurl = "https://api.themoviedb.org/3/genre/movie/list?" + key + "&language=en-US";
+
+getGenre(genreurl);
+
+function getGenre(genre_url){
+
+    fetch(genre_url).then(res => res.json()).then(data => {
+        console.log(data);
+    })
+
+}
 
 getMovies(main_url);
 
@@ -60,7 +70,7 @@ function showMovies(data) {
 
         <div class="title">
             <h1> 
-            ${title}
+            <span class="">${title}</span>
             </h1>
         </div>
 
@@ -83,14 +93,6 @@ function showMovies(data) {
         main.appendChild(movieEl);
     })
 }
-
-function changeColour(){
-
-}
-
-/* <button class="addwatchlist" id="addwatchbutton" onclick="">Add to watchlist</button>
-        
-<button class="removewatchlist" id="removewatchlist" onclick="removewatchlisT${title, poster_path, overview}">Remove from watchlist</button> */
 
 form.addEventListener('submit', (e) => {
 
