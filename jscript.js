@@ -19,7 +19,7 @@ const searchurl = url + "search/movie?" + key + "&language=en-US&page=1&include_
 const tvshowurl = "https://api.themoviedb.org/3/search/tv?" + key + "&language=en-US&page=1&include_adult=false";
 
 const main = document.getElementById("main");
-const search = document.getElementById("search");
+const search = document.getElementById("search_show");
 const form = document.getElementById("form");
 const watchlistbutton = document.getElementById("addwatchbutton")
 const removewatchlistbutton = document.getElementsByClassName("removewatchlist")
